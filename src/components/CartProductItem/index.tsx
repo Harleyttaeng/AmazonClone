@@ -3,20 +3,24 @@ import { View, Text, Image } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 
-interface ProductItemProps {
-  item: {
+interface CartProductItemProps {
+  carItem: {
     id: string,
-    title: string,
-    image: string,
-    avgRating: number,
-    ratings: number,
-    price: number,
-    oldPrice?: number,
+    quantity: string,
+    item: {
+      id: string,
+      title: string,
+      image: string,
+      avgRating: number,
+      ratings: number,
+      price: number,
+      oldPrice?: number,
+    }
   }
 }
 
-const ProductItem = (props: ProductItemProps) => {
-  const item = props.item;
+const CartProductItem = ({ carItem }: CartProductItemProps) => {
+  const {quantity, item} = carItem;
   return (
       <View style={styles.root}>
         <Image
@@ -46,4 +50,4 @@ const ProductItem = (props: ProductItemProps) => {
   );
 };
 
-export default ProductItem;
+export default CartProductItem;
